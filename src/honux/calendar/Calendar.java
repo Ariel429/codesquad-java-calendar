@@ -19,18 +19,24 @@ public class Calendar {
 	}
 	
 	public static void main(String[] args) {
+		String PROMPT = "cal> ";
 		Scanner scanner= new Scanner(System.in);
 		Calendar calendar = new Calendar();
-		System.out.println("입력을 반복할 횟수를 입력하세요.");
-		int repeat = scanner.nextInt();
+		int month = 0;
 		
-		for(int i=0; i< repeat; i++) {
-			System.out.println("달을 입력하세요.");
-			int month = scanner.nextInt();	
+		while(true) {
+			System.out.println("월을 입력하세요: ");
+			System.out.print(PROMPT);
+			month = scanner.nextInt();	
+			if(month ==-1) {
+				break;
+			}if(month > 12) {
+				continue;
+			}
 			System.out.printf("%d월은 %d일까지 있습니다. \n", month, calendar.getMdaysOfMonth(month));
-		}
 			
-		System.out.println("반복을 종료합니다.");
+		}
+		System.out.println("Have a nice day!");
 		scanner.close();
 	}
 }
